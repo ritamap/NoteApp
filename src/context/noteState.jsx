@@ -3,13 +3,12 @@ import noteContext from "./noteContext";
 
 
 const NoteState = (props) => {
-  const host = "http://localhost:5000"
   const [notes, setNotes] = useState([])
 
   //Add a note
   const addNote = async (title, description, tag) => {
     //API call
-    const response = await fetch(`${host}/api/notes/addnote`, {
+    const response = await fetch(`${process.env.URL}/api/notes/addnote`, {
       method: 'POST',
 
       headers: {
@@ -28,7 +27,7 @@ const NoteState = (props) => {
   //Delete a note
   const deleteNote = async (id) => {
   //API call
-  await fetch(`${host}/api/notes/deletenote/${id}`, {
+  await fetch(`${process.env.URL}/api/notes/deletenote/${id}`, {
     method: 'DELETE',
    
     headers: {
@@ -45,7 +44,7 @@ const NoteState = (props) => {
   //Edit a note
   const editNote = async (id, title, description, tag) => {
     //API call
-     await fetch(`${host}/api/notes/updatenote/${id}`, {
+     await fetch(`${process.env.URL}/api/notes/updatenote/${id}`, {
       method: 'PUT',
 
       headers: {
@@ -74,7 +73,7 @@ const NoteState = (props) => {
   //get all notes
   const getNotes = async ()=>{
     //API call
-    const response = await fetch(`${host}/api/notes/fetchallnotes`, {
+    const response = await fetch(`${process.env.URL}/api/notes/fetchallnotes`, {
       method: 'GET',
      
       headers: {
