@@ -8,7 +8,7 @@ const Login = ({showAlert}) => {
 
   const handleOnSubmit = async (e)=>{
     e.preventDefault()
-    const response = await fetch(`${process.env.URL}/api/auth/login`, {
+    const response = await fetch(`${process.env.BASE_URL}/api/auth/login`, {
       method: 'POST',
      
       headers: {
