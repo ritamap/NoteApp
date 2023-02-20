@@ -5,9 +5,10 @@ const Signup = (props) => {
   const [credentials, setCredential] = useState({ name: "", email: "", password: "",cPassword:"" })
   const navigate = useNavigate()
   const PasswordRef = useRef(null)
+  console.log(import.meta.env.VITE_BASE_URL)
   const handleOnSubmit = async (e) => {
     e.preventDefault()
-    const response = await fetch(`${process.env.BASE_URL}/api/auth/createUser`, {
+    const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/auth/createUser`, {
       method: 'POST',
 
       headers: {
@@ -32,9 +33,7 @@ const Signup = (props) => {
 
   }
   const onChange = (e) => {
-    console.log(credentials)
-    console.log(credentials.cPassword !== credentials.password ||
-      credentials.password.length===0 || credentials.cPassword.length===0)
+    // console.log(credentials)
     setCredential((prev) => { return { ...prev, [e.target.name]: e.target.value } });
   }
   return (
