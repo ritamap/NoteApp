@@ -28,7 +28,7 @@ const Login = ({showAlert}) => {
 
     }
     else{
-      showAlert("Invalid credentials","danger")
+      showAlert("Unsuccessful","Invalid credentials","danger")
 
     }  
     
